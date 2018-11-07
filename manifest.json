@@ -1,6 +1,6 @@
 {
 	"name": "Anime1.me",
-	"version": "1.1",
+	"version": "1.2",
 	"description": "Anime1.me 官方播放助手",
 	"icons": {
 		"16": "icon16.png",
@@ -11,6 +11,14 @@
 		"scripts": ["background.js"],
 		"persistent": true
 	},
+    "browser_action": {
+        "default_icon": {
+            "16": "icon16.png",
+            "48": "icon48.png",
+            "128": "icon128.png"
+        },
+        "default_popup": "popup.html"
+    },
 	"permissions": [
 		"webRequest",
 		"webRequestBlocking",
@@ -18,7 +26,7 @@
         "*://video.xx.fbcdn.net/*"
 	],
     "externally_connectable": {
-        "matches": ["*://localhost/*", "*://*.anime1.me/*"]
+        "matches": ["*://*.anime1.me/*"]
     },
 	"manifest_version": 2
 }

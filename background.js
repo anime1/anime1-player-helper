@@ -1,10 +1,8 @@
 'use strict';
-console.log(chrome.runtime.getManifest().version);
 
 // Check extension version
 chrome.runtime.onMessageExternal.addListener(
 	(message, sender, sendResponse) => {
-        console.log(message);
 	if (message == 'version') {
 		const manifest = chrome.runtime.getManifest();
 		sendResponse({
@@ -16,10 +14,8 @@ chrome.runtime.onMessageExternal.addListener(
 	return true;
 });
 
-
 chrome.webRequest.onBeforeSendHeaders.addListener(
 	(details) => {
-	console.log(details);
 	for (var i = 0; i < details.requestHeaders.length; ++i) {
 		if (details.requestHeaders[i].name === 'Referer') {
 			details.requestHeaders[i].value = "https://www.facebook.com/"
